@@ -8,6 +8,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { About, AddPost, AllPosts, Contact, EditPost, Post, SignUp } from './Pages/index.js'
 import HomeDecider from './Components/HomeDecider.jsx'
+import Profile from './Pages/Profile.jsx'
 const router = createBrowserRouter([{
   path: "/",
   element: <App />,
@@ -71,6 +72,14 @@ const router = createBrowserRouter([{
       <Protected >
         {" "}
         <About />
+      </Protected>
+    ),
+  }, {
+    path: "/profile",
+    element: (
+      <Protected >
+        {" "}
+        <Profile />
       </Protected>
     ),
   }
