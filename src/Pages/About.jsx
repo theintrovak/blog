@@ -1,6 +1,6 @@
 import { Container } from '../Components/index'
 import React from "react"
-import { Card, CardContent } from '../Components/ui/card.jsx'
+import { Card, CardContent } from '@/Components/ui/Card'
 import { Button } from "@/components/ui/button"
 
 export default function AboutPage() {
