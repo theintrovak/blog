@@ -5,7 +5,7 @@ function Footer() {
     return (
         <footer className="bg-white border-none text-black py-10">
             {/* Container */}
-            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-1 gap-8">
+            <div className="max-w-7xl mx-auto h-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
                 {/* Left section */}
                 <div>
