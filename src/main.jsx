@@ -1,0 +1,88 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.jsx'
+import { Provider } from 'react-redux'
+import { Protected, Login, } from './Components/index.js'
+import store from './Store/store.js'
+import './index.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { About, AddPost, AllPosts, Contact, EditPost, Post, SignUp } from './Pages/index.js'
+import HomeDecider from './Components/HomeDecider.jsx'
+const router = createBrowserRouter([{
+  path: "/",
+  element: <App />,
+  children: [{
+    index: true,
+    element: <HomeDecider />,
+  }, {
+    path: "/login",
+    element: <Protected authentication={false}>
+      <Login />
+    </Protected>
+  },
+  {
+    path: "/SignUp",
+    element: (
+      <Protected authentication={false}>
+        {" "}
+        <SignUp />
+      </Protected>
+    ),
+  }, {
+    path: "/all-posts",
+    element: (
+      <Protected authentication>
+        {" "}
+        <AllPosts />
+      </Protected>
+    ),
+  }, {
+    path: "/addpost",
+    element: (
+      <Protected authentication={true}>
+        {" "}
+        <AddPost />
+      </Protected>
+    ),
+  }, {
+    path: "/edit-post/:slug",
+    element: (
+      <Protected authentication>
+        {" "}
+        <EditPost />
+      </Protected>
+    ),
+  }, {
+    path: "/post/:slug",
+    element: (
+      <Post />
+    ),
+  }, {
+    path: "/contact",
+    element: (
+      <Protected >
+        {" "}
+        <Contact />
+      </Protected>
+    ),
+  }, {
+    path: "/about",
+    element: (
+      <Protected >
+        {" "}
+        <About />
+      </Protected>
+    ),
+  }
+  ]
+}])
+
+createRoot(document.getElementById('root')).render(
+
+  <StrictMode>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </StrictMode>
+
+)
