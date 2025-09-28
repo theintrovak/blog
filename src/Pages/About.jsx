@@ -1,7 +1,7 @@
 import { Container } from '../Components/index'
 import React from "react"
 import { Card, CardContent } from '../Components/ui/card'
-import { Button } from "@/components/ui/button"
+import { Button } from "@/Components/ui/button"
 
 export default function AboutPage() {
     return (
