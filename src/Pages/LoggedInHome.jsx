@@ -1,14 +1,18 @@
 // src/Pages/Home.jsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { LogOut, User, FileText, Image } from "lucide-react";
+import { LogOut, User, FileText, } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import authservice from "@/Appwrite/Auth";
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
 import { BarChart2 } from "lucide-react";
+import { useDispatch } from "react-redux";
 import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from "recharts";
+import Swal from "sweetalert2";
+import { logout } from "@/Store/authSlice";
+import { Logoutbtn } from "@/Components";
 
 export default function Home() {
     const analyticsData = [
@@ -21,6 +25,7 @@ export default function Home() {
         { day: "Sun", views: 200 },
     ];
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [userData, setUserData] = useState(null)
     useEffect(() => {
         const loadUser = async () => {
@@ -29,15 +34,13 @@ export default function Home() {
         }
         loadUser()
     }, [])
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-6">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black flex flex-col space-y-40 text-white p-6">
             {/* Top Navbar */}
             <header className="flex justify-between items-center mb-8">
                 <h1 className="text-2xl font-bold">Dashboard</h1>
-                <Button variant="destructive" className="flex items-center gap-2">
-                    <LogOut size={20} />
-                    LOGOUT
-                </Button>
+                <Logoutbtn />
             </header>
 
             {/* Welcome Section */}
@@ -72,7 +75,7 @@ export default function Home() {
                     </CardHeader>
                     <CardContent>
                         <p className="text-gray-400 mb-4">View weekly page views and engagement.</p>
-                        <Button variant="secondary" className="w-full" onClick={() => navigate("/analytics")} >View Analytics</Button>
+                        <Button variant="secondary" className="w-full" onClick={() => (window.location.href = "#chart")} >View Analytics</Button>
                     </CardContent>
                 </Card>
 
@@ -87,12 +90,8 @@ export default function Home() {
                         <Button variant="secondary" onClick={() => navigate("/profile")} className="w-full">Go to Profile</Button>
                     </CardContent>
                 </Card>
-
-
-
-
             </section>
-            <div className="min-h-screen bg-gray-900 text-white p-6">
+            <div id="chart" className=" text-white p-6">
                 <h1 className="text-2xl font-bold mb-6">Analytics</h1>
 
                 <section className="bg-gray-800 p-6 rounded-2xl shadow-lg">

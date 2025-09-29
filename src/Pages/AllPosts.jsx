@@ -11,19 +11,31 @@ function AllPosts() {
         }
     })
     return (
-        <div>
-            <Container >
-                <div className='grid overflow-auto  grid-cols-1 grid-rows-2 md:grid-row-3 md:grid-cols-2 lg:grid-cols-7 lg:grid-rows-4 '>
-                    {posts.map((post) => (
-                        <div key={post.$id}
-                            className='mt-4    h-20 w-20   lg:h-40 lg:w-40 hover:scale-105 transition duration-300 ease-in-out'
-                        >
-                            <Card {...post} />
-                        </div>
-                    ))}
-                </div>
-            </Container>
+        <div className="w-full py-8 bg-gradient-to-bl from-gray-900 via-gray-800 to-black">
+
+            <h2 className="text-2xl font-bold mb-6 text-white">Latest Posts</h2>
+
+            <div className="
+      grid gap-6
+      grid-cols-1 
+      sm:grid-cols-2 
+      md:grid-cols-3 
+      lg:grid-cols-4 
+      xl:grid-cols-5
+    ">
+                {posts.map((post) => (
+                    <div
+                        key={post.$id}
+                        className="transform transition duration-300 ease-in-out 
+                     hover:scale-105 hover:shadow-xl "
+                    >
+                        <Card {...post} />
+                    </div>
+                ))}
+            </div>
+
         </div>
+
     )
 }
 

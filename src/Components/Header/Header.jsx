@@ -35,7 +35,7 @@ function Header() {
         {
             name: 'contact',
             slug: '/contact',
-            active: true
+            active: !authStatus
 
         },
         {
@@ -59,7 +59,7 @@ function Header() {
     ]
     return (
 
-        <header className="w-full border-none sticky top-0 bg-white shadow-sm">
+        <header className="w-full border-none sticky top-0 z-50 bg-white shadow-sm">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
 
                 {/* Logo / Brand */}

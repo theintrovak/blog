@@ -33,35 +33,43 @@ export default function Post() {
     };
 
     return post ? (
-        <div className="py-8">
-            <Container>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-                    <img
-                        src={services.getFilePreview(post.featuredImage)}
-                        alt={post.title}
-                        className="rounded-xl"
-                    />
+        <div className="py-10 max-w-4xl bg-gradient-to-tl from-gray-900 via-gray-800 to-black mx-auto px-4">
+            {/* Featured Image */}
+            <div className="relative w-full mb-8">
+                <img
+                    src={services.getFilePreview(post.featuredImage)}
+                    alt={post.title}
+                    className="w-full h-auto rounded-2xl shadow-lg object-cover"
+                />
 
-                    {isAuthor && (
-                        <div className="absolute right-6 top-6">
-                            <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
-                                    Edit
-                                </Button>
-                            </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
-                                Delete
+                {/* Edit/Delete Buttons for Author */}
+                {isAuthor && (
+                    <div className="absolute right-4 top-4 flex gap-2">
+                        <Link to={`/edit-post/${post.$id}`}>
+                            <Button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow">
+                                Edit
                             </Button>
-                        </div>
-                    )}
-                </div>
-                <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{post.title}</h1>
-                </div>
-                <div className="browser-css">
-                    {parse(post.content)}
-                </div>
-            </Container>
+                        </Link>
+                        <Button
+                            onClick={deletePost}
+                            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg shadow"
+                        >
+                            Delete
+                        </Button>
+                    </div>
+                )}
+            </div>
+
+            {/* Post Title */}
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 text-white leading-snug">
+                {post.title}
+            </h1>
+
+            {/* Post Content */}
+            <article className="prose prose-invert prose-lg max-w-none text-gray-300">
+                {parse(post.content)}
+            </article>
         </div>
+
     ) : null;
 }
