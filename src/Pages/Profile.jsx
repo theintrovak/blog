@@ -1,6 +1,6 @@
 // src/Pages/Profile.jsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
 import { User, Mail, Key, Edit3 } from "lucide-react";
 
