@@ -11,7 +11,7 @@ function Footer() {
                 <div>
                     <h2 className="text-2xl font-bold text-white">MyWebsite</h2>
                     <p className="mt-3 text-black">
-                        Building modern web apps with clean and simple designs.
+                        Personal Development for Smart People.
                     </p>
                 </div>
 
@@ -19,10 +19,10 @@ function Footer() {
                 <div>
                     <h3 className="text-lg font-semibold text-white mb-3">Quick Links</h3>
                     <ul className="space-y-2">
-                        <li><Link to="/" className="hover:text-white">Home</Link></li>
-                        <li><Link to="/about" className="hover:text-white">About</Link></li>
-                        <li><Link to="/blog" className="hover:text-white">Blog</Link></li>
-                        <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+                        <li><Link to="/" className="hover:text-blue-800">Home</Link></li>
+                        <li><Link to="/about" className="hover:text-blue-800">About</Link></li>
+                        <li><Link to="/all-posts" className="hover:text-blue-800">Blog</Link></li>
+                        <li><Link to="/contact" className="hover:text-blue-800">Contact</Link></li>
                     </ul>
                 </div>
 

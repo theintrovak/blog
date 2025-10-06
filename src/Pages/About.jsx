@@ -2,8 +2,10 @@ import { Container } from '../Components/index'
 import React from "react"
 import { Card, CardContent } from '../Components/ui/card'
 import { Button } from "@/Components/ui/button"
+import { useNavigate } from 'react-router-dom'
 
 export default function AboutPage() {
+    const navigate = useNavigate()
     return (
         <Container>
             <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -66,7 +68,7 @@ export default function AboutPage() {
                 {/* Call to Action */}
                 <section className="text-center py-12 bg-white shadow-inner">
                     <h2 className="text-2xl font-semibold mb-4">Want to work with us?</h2>
-                    <Button className="bg-[#10A4B0] hover:bg-[#0d8790]">
+                    <Button className="bg-[#10A4B0] hover:bg-[#0d8790] " onClick={() => navigate("/contact")} >
                         Get in Touch
                     </Button>
                 </section>
