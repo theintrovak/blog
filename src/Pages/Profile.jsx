@@ -3,8 +3,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Button } from "@/Components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
 import { User, Mail, Key, Edit3 } from "lucide-react";
+import { useState, useEffect } from "react";
+import authservice from "@/Appwrite/Auth";
+
 
 export default function Profile() {
+    const [userData, setUserData] = useState(null)
+    useEffect(() => {
+        const loadUser = async () => {
+            const userData = await authservice.getCurrentUser()
+            setUserData(userData)
+        }
+        loadUser()
+    }, [])
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-6 flex items-center justify-center">
             <Card className="w-full max-w-3xl bg-gray-800 border-gray-700 shadow-lg">
@@ -25,9 +36,9 @@ export default function Profile() {
                         </Avatar>
                         <div>
                             <h2 className="text-2xl font-bold text-purple-400 flex items-center gap-2">
-                                <User size={20} /> John Doe
+                                <User size={20} /> {userData?.name}
                             </h2>
-                            <p className="text-gray-400">Frontend Developer</p>
+                            <p className="text-gray-400">welcome to your profile {userData?.name}</p>
                         </div>
                     </div>
 
@@ -37,7 +48,7 @@ export default function Profile() {
                             <p className="text-gray-400 flex items-center gap-2 mb-1">
                                 <Mail size={18} /> Email
                             </p>
-                            <p className="text-lg font-medium">johndoe@example.com</p>
+                            <p className="text-lg font-medium">{userData?.email}</p>
                         </div>
 
                         <div className="bg-gray-700 p-4 rounded-xl shadow-md">

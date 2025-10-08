@@ -52,11 +52,11 @@ function Contact() {
 
                         {/* Message */}
                         <div>
-                            <label className="block text-gray-700 mb-1">Message</label>
+                            <label className="block text-gray-100 mb-1">Message</label>
                             <textarea
                                 rows="5"
                                 placeholder="Enter your message"
-                                className="w-full p-2 border rounded focus:outline-blue-500"
+                                className="w-full p-2 border-amber-50 border text-white  rounded focus:outline-blue-500"
                                 {...register("message", { required: "Message is required" })}
                             />
                             {errors.message && (

@@ -25,7 +25,6 @@ export default function Home() {
         { day: "Sun", views: 200 },
     ];
     const navigate = useNavigate()
-    const dispatch = useDispatch()
     const [userData, setUserData] = useState(null)
     useEffect(() => {
         const loadUser = async () => {
