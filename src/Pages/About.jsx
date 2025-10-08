@@ -10,7 +10,7 @@ export default function AboutPage() {
         <Container>
             <div className="min-h-screen bg-gray-50 flex flex-col">
                 {/* Hero Section */}
-                <section className="bg-[#10A4B0] text-white py-16 text-center">
+                <section className="bg-[#182232] text-white py-16 text-center">
                     <h1 className="text-4xl font-bold mb-4">About Us</h1>
                     <p className="text-lg max-w-2xl mx-auto">
                         We’re passionate about building modern web apps with clean design and dynamic features.
