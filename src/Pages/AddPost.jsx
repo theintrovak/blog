@@ -4,10 +4,10 @@ import { Container, PostForm } from '../Components/index'
 
 function AddPost() {
     return (
-        <div>
-            <Container>
-                <PostForm />
-            </Container>
+        <div className='bg-[#323d51]' >
+
+            <PostForm />
+
         </div>
     )
 }
